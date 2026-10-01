@@ -29,10 +29,12 @@ If they'd rather not answer, use sensible defaults and say which ones in a line.
 
 ## 3. Back up, then rewrite
 
-Copy the current file to `~/.claude/backups/opus-setup-<date>/` (keep its file name) and tell them where it is. Then rewrite it using [the template](references/claude-md-template.md):
+Copy the current file to `~/.claude/backups/opus-setup-<YYYY-MM-DD>/` (keep its file name) and tell them where it is. Then rewrite it using [the template](references/claude-md-template.md):
 
 - Aim for under about 100 lines.
-- Keep every real protection they had. Rewrite each one calmly, with a one-line reason.
+- Keep every real protection they had, including ones the template has no slot for. Rewrite each one calmly, with a one-line reason.
+- If an answer and the old file disagree on a red line, keep the stricter version and make its scope clear (for example "reading is fine, changing needs a yes"), so it doesn't cause needless check-ins.
+- Drop template lines that don't fit how they work.
 - Remove old-model habits: "think hard / carefully / step by step", ALL-CAPS pressure words, forced "double-check everything" steps, pinned old model names, and rules that contradict each other.
 - Long step-by-step procedures don't belong in this file. Leave them out of the rewrite (they stay in the backup) and tell the person which ones, so they can turn them into skills later if they want.
 
@@ -45,13 +47,13 @@ Offer to set these in `~/.claude/settings.json`, and apply them only if they agr
 - `"model": "opus"`, which always uses the latest Opus.
 - `"effortLevel": "medium"`, Anthropic's recommended default for Opus 5.5.
 
-Change only those two keys, keep everything else exactly as it was, and check the file still parses afterwards.
+Back up `settings.json` into the same backup folder first. Edit only those two keys by hand, keep the rest of the file exactly as it was (formatting included), and check it still parses afterwards.
 
 ## 5. Show and hand over
 
-- Show the line count before and after, and the new file.
+- Show the line count before and after, the new file, and any procedures you left out.
 - Suggest they start a fresh session and ask a real question. The reply should lead with the answer and be short.
-- Undo: copy the file back from the backup folder.
+- Undo: copy the files back from the backup folder.
 
 ## Boundaries
 
